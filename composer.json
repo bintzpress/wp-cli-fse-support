@@ -1,0 +1,13 @@
+{
+	"name": "bintzpress/wp-cli-plugin-extract",
+	"description": "Extract template and template parts.",
+	"type": "wp-cli-package",
+	"homepage": "https://github.com/bintzpress/wp-cli-plugin-extract",
+	"license": "GPLv2",
+	"require": {
+		"php": ">=5.4"
+	},
+	"autoload": {
+		"files": [ "wp-cli-plugin-extract.php" ]
+	}
+}

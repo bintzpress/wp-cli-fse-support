@@ -24,8 +24,8 @@ class PackageCore {
 
 	public function list($post_type) {
 		global $wpdb;
-		$rows = $wpdb->get_results("select ID, post_name as name, post_title as title, post_type as type, post_modified as modified, post_status as status from wp_posts where post_type = '$post_type' and (post_status = 'publish' or post_status = 'draft') order by name, modified desc");
-		WP_CLI\Utils\format_items('table', $rows, array('ID', 'name', 'title', 'type', 'modified', 'status'));   
+		$rows = $wpdb->get_results("select ID, post_name as name, post_title as title, post_modified as modified, post_status as status from wp_posts where post_type = '$post_type' and (post_status = 'publish' or post_status = 'draft') order by name, modified");
+		WP_CLI\Utils\format_items('table', $rows, array('ID', 'name', 'title', 'modified', 'status'));   
 	}
 
 	public function id_check($id) {

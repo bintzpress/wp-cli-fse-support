@@ -11,8 +11,6 @@
 
 namespace bintzpress\CLI\FSESupport\Command;
 
-require_once 'core/class-package-core.php';
-
 use WP_CLI;
 
 if ( ! ( defined('WP_CLI') && WP_CLI )) {

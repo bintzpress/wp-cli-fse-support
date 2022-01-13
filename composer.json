@@ -3,7 +3,7 @@
 	"description": "List and export template and template parts.",
 	"keywords": ["wp-cli", "wordpress"],
 	"type": "wp-cli-package",
-	"homepage": "https://github.com/bintzpress/template-export",
+	"homepage": "https://github.com/bintzpress/wp-cli-fse-support",
 	"authors": [
 		{
 			"name": "Brian Bintz",
@@ -13,7 +13,7 @@
 	],
 	"license": "GPLv2",
 	"require": {
-		"php": ">=7.0"
+		"php": ">=7.4"
 	},
 	"autoload": {
 		"files": [ "wp-cli-fse-support.php" ],

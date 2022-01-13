@@ -1,13 +1,24 @@
 {
-	"name": "bintzpress/wp-cli-plugin-extract",
-	"description": "Extract template and template parts.",
+	"name": "bintzpress/wp-cli-fse-support",
+	"description": "List and export template and template parts.",
+	"keywords": ["wp-cli", "wordpress"],
 	"type": "wp-cli-package",
-	"homepage": "https://github.com/bintzpress/wp-cli-plugin-extract",
+	"homepage": "https://github.com/bintzpress/template-export",
+	"authors": [
+		{
+			"name": "Brian Bintz",
+			"email": "brian@bintzpress.com",
+			"homepage": "https://bintzpress.com"
+		}
+	],
 	"license": "GPLv2",
 	"require": {
-		"php": ">=5.4"
+		"php": ">=7.0"
 	},
 	"autoload": {
-		"files": [ "wp-cli-plugin-extract.php" ]
+		"files": [ "wp-cli-fse-support.php" ],
+		"psr-0": {
+			"bintzpress\\CLI\\FSESupport\\Core\\": "core/"
+		}
 	}
 }

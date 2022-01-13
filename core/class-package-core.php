@@ -22,16 +22,9 @@ class PackageCore {
 		}
 	}
 
-	public function get_prefix() {
-		$response = WP_CLI::launch_self( 'db prefix', array(), array( 'format' => 'json' ), false, true );
-		$prefix = json_decode( $response->stdout );
-		var_dump($prefix);
-	}
-
 	public function list($post_type) {
-		$prefix = $this->get_prefix();
 		global $wpdb;
-		$rows = $wpdb->get_results("select ID, post_name as name, post_title as title, post_modified as modified, post_status as status from ".($prefix)."_posts where post_type = '$post_type' and (post_status = 'publish' or post_status = 'draft') order by name, modified");
+		$rows = $wpdb->get_results("select ID, post_name as name, post_title as title, post_modified as modified, post_status as status from $wpdb->posts where post_type = '$post_type' and (post_status = 'publish' or post_status = 'draft') order by name, modified");
 		WP_CLI\Utils\format_items('table', $rows, array('ID', 'name', 'title', 'modified', 'status'));   
 	}
 
@@ -45,9 +38,8 @@ class PackageCore {
 
 	public function export($post_type, $id) {
 		if ($this->id_check($id)) {
-			$prefix = $this->get_prefix();
 			global $wpdb;
-            $rows = $wpdb->get_results("select post_name, post_content from ".($prefix)."_posts where ID = $id and (post_status = 'publish' or post_status = 'draft') and post_type = '$post_type'");
+            $rows = $wpdb->get_results("select post_name, post_content from $wpdb->posts where ID = $id and (post_status = 'publish' or post_status = 'draft') and post_type = '$post_type'");
             if (count($rows) == 0) {
                 WP_CLI::error("Unable to find ID for draft or published template or template part");
             } else {
